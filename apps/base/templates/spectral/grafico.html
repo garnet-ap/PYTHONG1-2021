@@ -1,0 +1,32 @@
+{% if image %}
+<div class="col-md-6">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Grafico 1
+        </div>
+        <div class="panel-body">
+            <div class="canvas-wrapper">
+                    <img src='data:image/png;base64,{{ image }} ' width="550rem" height="550rem">
+                <canvas class="chart" id="pie-chart" ></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+<!--
+{% if codo %}
+<div class="col-md-6">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Método del codo 
+        </div>
+        <div class="panel-body">
+            <div class="canvas-wrapper">                
+                
+                    <img src='data:image/png;base64,{{ codo }} ' width="550rem" height="550rem">
+               
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}-->

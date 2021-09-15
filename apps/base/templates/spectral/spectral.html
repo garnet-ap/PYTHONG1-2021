@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block classifier %}
+<a class="navbar-brand" href="{% url 'base:spectral' %}"><span>Spectral</span>Classiffier</a>
+{% endblock classifier %}
+
+{% block title %}
+	Algoritmo de Clustering Espectral
+	<a href="{% static 'files/kmeans.pdf' %}" class="btn btn-info" text-align='right'>Ver Documentación</a>
+{% endblock title %}
+	
+{% block content %}
+<div class="row">
+	
+	<div class="profile-userpic">
+        <img src="{% static 'img/pythonlogo.png' %}" class="img-responsive" alt="">
+    </div>
+    <div class="profile-usertitle">
+        <div class="profile-usertitle-name">pythonG1</div>
+    </div>
+	
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-body tabs">
+				<div id="tabs" >
+					<ul class="nav nav-pills">
+						<li class="active"><a href="#tabs-1" data-toggle="tab">Clasificador</a></li>
+						<li><a href="#tabs-2" data-toggle="tab">Grafico</a></li>
+						<!-- <li><a href="#tabs-3" data-toggle="tab">Baricentros</a></li>-->
+						<li><a href="#tabs-4" data-toggle="tab">Tabla</a></li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane fade in active" id="tabs-1">
+							<div class="col-md-6">
+								<h4>Ingresar:</h4>
+								<form action="" method="post">
+									{% csrf_token %}
+									{{ form.as_p }}
+									<input type="submit" value="Mostrar" class="btn btn-success" style="float: right;"></input>
+								</form>
+							</div>
+							<div class="col-md-6">
+								<h4>Estadísticas</h4>
+								{% include 'spectral/estadisticas.html' %}
+							</div>
+							<!--<div class="col-md-6">
+								<h4>Inercias</h4>
+								{% include 'spectral/inercia.html' %}
+							</div>-->
+						</div>
+						<div class="tab-pane fade" id="tabs-2">
+							<h4>Graficos</h4>
+							{% include 'spectral/grafico.html' %}
+						</div>
+						<div class="tab-pane fade" id="tabs-3">
+							<h4>Resultados</h4>
+							{% include 'spectral/baricentro.html' %}
+						</div>
+						<div class="tab-pane fade" id="tabs-4">
+							<h4>Resultados</h4>
+							{% include 'spectral/tabla.html' %}
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div><!--/.panel-->
+	</div><!-- /.col-->
+</div><!-- /.row -->
+
+{% endblock content %}
